@@ -1,1 +1,1 @@
-# Time-Series---Neural-Networks
+# Insurance prediction - ML Regression project
