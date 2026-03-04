@@ -47,6 +47,45 @@ Insurance-ML-Regression/
 ├── requirements.txt
 └── README.md
 
+
 ---
 
-## Repository Structure
+## Model Development
+
+The modeling workflow includes:
+
+1. Data preprocessing and encoding of categorical variables
+2. Feature scaling where required
+3. Training baseline models (e.g., Linear Regression)
+4. Training an advanced Neural Network model
+5. Performance evaluation using:
+
+   - Mean Squared Error (MSE)
+   - Root Mean Squared Error (RMSE)
+   - R² Score
+
+The neural network improves predictive performance by capturing nonlinear relationships between smoking status, BMI, and insurance charges.
+
+---
+
+## Results Summary
+
+Key findings from the analysis:
+
+- Smoking status is the strongest predictor of insurance costs.
+- BMI significantly affects charges, especially for smokers.
+- Linear Regression provides a solid and interpretable baseline.
+- The Neural Network model reduces prediction error and better captures nonlinear feature interactions.
+
+The final model demonstrates strong generalization performance on unseen test data and provides reliable cost estimates.
+
+---
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/miloszgroch/Insurance---ML-Regression.git
+cd Insurance---ML-Regression
+```
