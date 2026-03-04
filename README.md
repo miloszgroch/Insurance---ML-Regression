@@ -32,17 +32,17 @@ The project covers:
 
 Insurance-ML-Regression/
 │
-├── app/
-│   └── app.py
+├── app/ # Streamlit web application
+│ └── app.py
 │
-├── notebooks/
-│   └── Insurance.ipynb
+├── notebooks/ # Exploratory analysis and experimentation
+│ └── Insurance.ipynb
 │
-├── data/
-│   └── insurance.csv
+├── data/ # Dataset
+│ └── insurance.csv
 │
-├── models/
-│   └── model.pkl
+├── models/ # Saved trained model
+│ └── model.pkl
 │
 ├── requirements.txt
 └── README.md
