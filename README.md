@@ -29,7 +29,7 @@ The project covers:
 ---
 
 ## Repository Structure
-
+```
 Insurance-ML-Regression/
 │
 ├── app/ # Streamlit web application
@@ -46,7 +46,7 @@ Insurance-ML-Regression/
 │
 ├── requirements.txt
 └── README.md
-
+```
 
 ---
 
