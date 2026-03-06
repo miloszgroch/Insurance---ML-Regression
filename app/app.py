@@ -1,33 +1,48 @@
+
 import streamlit as st
 import pandas as pd
 import joblib
-import numpy as np
 
+# -------------------------------
 # Page configuration
+# -------------------------------
+
 st.set_page_config(
     page_title="Insurance Cost Predictor",
     layout="centered"
 )
 
+# -------------------------------
 # Load trained model
+# -------------------------------
+
 model = joblib.load("../models/model.pkl")
 
-# Title
+# -------------------------------
+# Title and description
+# -------------------------------
+
 st.title("Insurance Cost Prediction")
+
 st.write(
 """
-This application predicts individual medical insurance charges based on demographic 
-and lifestyle information using a trained machine learning model.
+This application predicts individual medical insurance charges based on demographic
+and lifestyle information using a trained machine learning regression model.
 """
 )
 
 st.divider()
 
+# -------------------------------
 # Sidebar inputs
+# -------------------------------
+
 st.sidebar.header("Input Parameters")
 
 age = st.sidebar.slider("Age", 18, 100, 30)
+
 bmi = st.sidebar.slider("BMI", 10.0, 50.0, 25.0)
+
 children = st.sidebar.slider("Number of Children", 0, 5, 0)
 
 sex = st.sidebar.selectbox(
@@ -45,54 +60,38 @@ region = st.sidebar.selectbox(
     ["southwest", "southeast", "northwest", "northeast"]
 )
 
+# -------------------------------
 # Encoding categorical variables
+# -------------------------------
+
 sex_encoded = 1 if sex == "male" else 0
 smoker_encoded = 1 if smoker == "yes" else 0
 
-region_map = {
-    "southwest": 0,
-    "southeast": 1,
-    "northwest": 2,
-    "northeast": 3
-}
+region_northeast = 1 if region == "northeast" else 0
+region_northwest = 1 if region == "northwest" else 0
+region_southeast = 1 if region == "southeast" else 0
+region_southwest = 1 if region == "southwest" else 0
 
-region_encoded = region_map[region]
-
-# Input dataframe
-import pandas as pd
+# -------------------------------
+# Create input dataframe
+# -------------------------------
 
 input_data = pd.DataFrame({
     "age": [age],
-    "sex": [sex],
+    "sex": [sex_encoded],
     "bmi": [bmi],
     "children": [children],
-    "smoker": [smoker],
-    "region": [region]
+    "smoker": [smoker_encoded],
+    "region_northeast": [region_northeast],
+    "region_northwest": [region_northwest],
+    "region_southeast": [region_southeast],
+    "region_southwest": [region_southwest]
 })
 
-# one hot encoding
-input_data = pd.get_dummies(input_data, columns=["region"])
-
-# ensure same columns as training
-expected_columns = [
-    "age",
-    "bmi",
-    "children",
-    "sex_male",
-    "smoker_yes",
-    "region_northeast",
-    "region_northwest",
-    "region_southeast",
-    "region_southwest"
-]
-
-for col in expected_columns:
-    if col not in input_data:
-        input_data[col] = 0
-
-input_data = input_data[expected_columns]
-
+# -------------------------------
 # Prediction section
+# -------------------------------
+
 st.subheader("Prediction")
 
 if st.button("Predict Insurance Cost"):
@@ -106,6 +105,10 @@ if st.button("Predict Insurance Cost"):
 
     st.divider()
 
+    # -------------------------------
+    # Input summary
+    # -------------------------------
+
     st.subheader("Input Summary")
 
     summary = pd.DataFrame({
@@ -117,7 +120,11 @@ if st.button("Predict Insurance Cost"):
 
     st.divider()
 
-    st.subheader("Feature Values Visualization")
+    # -------------------------------
+    # Visualization
+    # -------------------------------
+
+    st.subheader("Feature Visualization")
 
     chart_data = pd.DataFrame({
         "Feature": ["Age", "BMI", "Children"],
@@ -131,3 +138,4 @@ st.divider()
 st.caption(
     "Machine Learning project for predicting medical insurance charges using regression models."
 )
+
