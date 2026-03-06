@@ -70,6 +70,18 @@ The neural network improves predictive performance by capturing nonlinear relati
 
 ## Results Summary
 
+## Model Performance
+
+| Model | MAE | MSE | R² |
+|------|------|------|------|
+| SVR | 8590.78 | 175,486,326.07 | -0.10 |
+| Linear Regression | 4213.57 | 72,142,778.11 | 0.55 |
+| Random Forest | 2612.88 | 19,194,314.28 | 0.88 |
+| Gradient Boosting | **2448.14** | **16,404,983.95** | **0.90** |
+
+- Gradient Boosting achieved the best performance across all evaluation metrics 
+and was selected as the final model for deployment in the Streamlit application.
+
 Key findings from the analysis:
 
 - Smoking status is the strongest predictor of insurance costs.
