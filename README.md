@@ -100,3 +100,35 @@ Running the Notebook
 ```bash
 jupyter notebook notebooks/Insurance.ipynb
 ```
+
+---
+
+## Training and Saving the Model
+
+Ensure that the trained model is saved to the models/ directory as model.pkl.
+You can export the trained model from the notebook using:
+
+```python
+import joblib
+joblib.dump(model, "models/model.pkl")
+```
+
+Running the Streamlit Application
+
+```bash
+streamlit run app/app.py
+```
+
+This will launch a local web interface allowing users to input parameters and obtain predicted insurance charges.
+
+---
+
+## Future Improvements
+
+- Hyperparameter optimization
+- Cross-validation pipeline
+- Model explainability using SHAP
+- Docker containerization
+- Cloud deployment
+
+---
