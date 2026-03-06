@@ -89,3 +89,14 @@ Clone the repository:
 git clone https://github.com/miloszgroch/Insurance---ML-Regression.git
 cd Insurance---ML-Regression
 ```
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Running the Notebook
+
+```bash
+jupyter notebook notebooks/Insurance.ipynb
+```
