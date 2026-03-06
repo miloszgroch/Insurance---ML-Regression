@@ -70,7 +70,7 @@ The neural network improves predictive performance by capturing nonlinear relati
 
 ## Results Summary
 
-## Model Performance
+Model Performance
 
 | Model | MAE | MSE | R² |
 |------|------|------|------|
