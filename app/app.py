@@ -59,14 +59,38 @@ region_map = {
 region_encoded = region_map[region]
 
 # Input dataframe
+import pandas as pd
+
 input_data = pd.DataFrame({
     "age": [age],
-    "sex": [sex_encoded],
+    "sex": [sex],
     "bmi": [bmi],
     "children": [children],
-    "smoker": [smoker_encoded],
-    "region": [region_encoded]
+    "smoker": [smoker],
+    "region": [region]
 })
+
+# one hot encoding
+input_data = pd.get_dummies(input_data, columns=["region"])
+
+# ensure same columns as training
+expected_columns = [
+    "age",
+    "bmi",
+    "children",
+    "sex_male",
+    "smoker_yes",
+    "region_northeast",
+    "region_northwest",
+    "region_southeast",
+    "region_southwest"
+]
+
+for col in expected_columns:
+    if col not in input_data:
+        input_data[col] = 0
+
+input_data = input_data[expected_columns]
 
 # Prediction section
 st.subheader("Prediction")
