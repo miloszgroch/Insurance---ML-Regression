@@ -134,7 +134,7 @@ streamlit run app/app.py
 This will launch a local web interface allowing users to input parameters and obtain predicted insurance charges.
 
 
-![Streamlit Demo](app/streamlit_demo.png)
+![Streamlit Demo](app/streamlit_demo.PNG)
 
 ---
 
