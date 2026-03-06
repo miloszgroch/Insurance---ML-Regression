@@ -125,13 +125,15 @@ import joblib
 joblib.dump(model, "models/model.pkl")
 ```
 
-Running the Streamlit Application
+## Running the Streamlit Application
 
 ```bash
 streamlit run app/app.py
 ```
 
 This will launch a local web interface allowing users to input parameters and obtain predicted insurance charges.
+
+![Streamlit Demo](https://raw.githubusercontent.com/miloszgroch/Insurance---ML-Regression/main/app/streamlit_demo.png)
 
 ---
 
